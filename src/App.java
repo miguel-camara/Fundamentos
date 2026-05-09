@@ -1,13 +1,50 @@
+import javax.swing.JOptionPane;
+
 public class App {
   public static void main(String[] args) throws Exception {
+    metodosString();
+  }
 
+  public static void metodosString() {
+    var text = "Texto de prueba en java";
+    System.out.println(text.toLowerCase());
+    System.out.println(text.toUpperCase());
+    System.out.println(text.charAt(0));
+    System.out.println(text.substring(0, 5));
+    System.out.println(text.substring(5));
+    System.out.println(text.compareTo("Otro texto"));
+    System.out.println(text.endsWith("java"));
+    System.out.println(text.contains("prueba"));
+    System.out.println(text.isBlank());
+    System.out.println(text.isEmpty());
+    System.out.println(text.length());
+    for (String valueString : text.split(" ")) {
+      System.out.println(valueString);
+
+    }
+    System.out.println(text.concat(", ").concat("algo nuevo"));
+    System.out.println(text.transform(c -> c + ", algo nuevo"));
+  }
+
+  public static void jOptionPane() {
+    int value = 0;
+    try {
+      value = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese"));
+
+    } catch (Exception e) {
+      JOptionPane.showMessageDialog(null, "Ocurrio un error");
+
+      // main(args);
+      System.exit(0);
+    }
+    System.out.println(value);
   }
 
   public static void variables() {
     // Cadena
     String cadena = "Cadena";
     // Decimal
-    double decimalDouble = 10.25;
+    double decimalDouble = 10.25d;
     float decimalFloat = 20.44f;
     // Enteros
     byte enteroByte = 1;
@@ -20,7 +57,7 @@ public class App {
     boolean esBoleano = true;
     // var para asiganar cualquier tipo de forma dinamica pero se tiene que
     // inicializar
-    var nombre = "Hola Mundo";
+    var nombre = "Hola Mundo\n";
 
   }
 }
