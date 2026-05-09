@@ -3,7 +3,42 @@ import javax.swing.JOptionPane;
 public class App {
   public static void main(String[] args) throws Exception {
     // metodosString();
-    obtenerExtension();
+    // obtenerExtension();
+    operadores();
+  }
+
+  private static void operadores() {
+    int num1 = 5, num2 = 10, resultado;
+
+    resultado = num1 + num2;
+    System.out.println(resultado);
+    resultado = num1 - num2;
+    System.out.println(resultado);
+    resultado = num1 * num2;
+    System.out.println(resultado);
+    resultado = num1 / num2;
+    System.out.println(resultado);
+    resultado = num1 % num2;
+    System.out.println(resultado);
+    resultado = 10;
+    resultado += 1;
+    System.out.println(resultado);
+    resultado -= 1;
+    System.out.println(resultado);
+    resultado *= 2;
+    System.out.println(resultado);
+    resultado /= 2;
+    System.out.println(resultado);
+    resultado %= 1;
+    System.out.println(resultado);
+
+    for (int i = 0; i < 50; i++) {
+      if (i % 2 == 0) {
+        System.out.println("El numero ".concat(i + " Es PAR"));
+      } else {
+        System.out.println("El numero ".concat(i + " Es IMPAR"));
+      }
+    }
   }
 
   public static void metodosString() {
@@ -19,8 +54,13 @@ public class App {
     System.out.println(text.isBlank());
     System.out.println(text.isEmpty());
     System.out.println(text.length());
+    // \\. equivale a . en split
     for (String valueString : text.split(" ")) {
       System.out.println(valueString);
+
+    }
+    for (char valueChar : text.toCharArray()) {
+      System.out.println(valueChar);
 
     }
     System.out.println(text.concat(", ").concat("algo nuevo"));
