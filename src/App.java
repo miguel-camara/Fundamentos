@@ -2,7 +2,8 @@ import javax.swing.JOptionPane;
 
 public class App {
   public static void main(String[] args) throws Exception {
-    metodosString();
+    // metodosString();
+    obtenerExtension();
   }
 
   public static void metodosString() {
@@ -24,6 +25,23 @@ public class App {
     }
     System.out.println(text.concat(", ").concat("algo nuevo"));
     System.out.println(text.transform(c -> c + ", algo nuevo"));
+    System.out.println(text.replace("a", "-"));
+    System.out.println(text.indexOf("a")); // Si no exite -1 sino posicion
+    System.out.println(text.lastIndexOf("a"));
+  }
+
+  private static void obtenerExtension() {
+    var nombreArchivo = "mi archivo.pdf";
+    var ext = "";
+
+    if (!nombreArchivo.contains(".")) {
+      System.out.println("Extension no valida");
+      return;
+    }
+    var i = nombreArchivo.lastIndexOf(".");
+    ext = nombreArchivo.substring(i + 1);
+    System.err.println(ext);
+
   }
 
   public static void jOptionPane() {
