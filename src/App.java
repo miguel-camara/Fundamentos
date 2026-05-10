@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -9,8 +8,8 @@ public class App {
     // metodosString();
     // obtenerExtension();
     // operadores();
-    // login();
-    ternario();
+    login();
+    // ternario();
   }
 
   public static void operadorInstansOF() {
@@ -35,8 +34,8 @@ public class App {
   public static void login() {
 
     var map = new HashMap<String, String>();
-    map.put("correo@correo.com", "12345");
-    map.put("correo2@correo.com", "54321");
+    map.put("miguel", "123");
+    map.put("ordonez", "321");
 
     var email = "";
     var password = "";
@@ -51,15 +50,11 @@ public class App {
       System.out.print("Password: ");
       password = sc.next();
 
-      for (Map.Entry<String, String> entry : map.entrySet()) {
-        if (email.equals(entry.getKey()) && password.equals(entry.getValue())) {
-          JOptionPane.showMessageDialog(null, "Login success ".concat(email));
-          isValido = true;
-          return;
-        }
+      if (map.containsKey(email) && map.get(email).equals(password)) {
+        JOptionPane.showMessageDialog(null, "Login success ".concat(email));
+        break;
       }
 
-      isValido = false;
       JOptionPane.showMessageDialog(null, "Error en credenciales");
 
     } while (!isValido);
