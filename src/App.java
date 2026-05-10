@@ -1,5 +1,10 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -7,13 +12,108 @@ import javax.swing.JOptionPane;
 public class App {
 
   public static void main(String[] args) throws Exception {
+    // for (String string : args) {
+    // System.out.println(string);
+    // }
     // metodosString();
     // obtenerExtension();
     // operadores();
     // login();
     // ternario();
     // variablesEntorno();
-    runTime();
+    // runTime();
+    // math();
+    // arreglos();
+    arrayList();
+  }
+
+  public static void arreglos() {
+    String[] arr = new String[5];
+    arr[0] = "Hola";
+    arr[1] = "Soy";
+    arr[2] = "Un";
+    arr[3] = "Arreglo";
+    arr[4] = "Java";
+
+    for (String string : arr) {
+      System.out.println(string);
+    }
+    String[] newArr = Arrays.copyOf(arr, arr.length);
+
+    Arrays.sort(arr);
+    System.out.println("-------------- ");
+
+    for (String string : arr) {
+      System.out.println(string);
+    }
+
+    Collections.reverse(Arrays.asList(newArr));
+
+    System.out.println("-----------");
+    for (String string : newArr) {
+      System.out.println(string);
+    }
+
+    int[] nums = { 21, 23, 14, 66, 45, 120, 150 };
+    Arrays.sort(nums);
+
+    int[] res = new int[nums.length];
+
+    int last = nums[nums.length - 1];
+
+    // int pos = 8;
+    int num = 100;
+
+    for (var i = 0; i < nums.length - 1; i++) {
+      res[i] = nums[i];
+      if (num > nums[i] && num < nums[i + 1]) {
+        res[i] = num;
+        num = -1;
+      }
+
+      if ((i + 1) == nums.length - 1) {
+        res[i + 1] = nums[i + 1];
+        break;
+      }
+    }
+    // for (var i = 0; i < nums.length; i++) {
+    // if (i == 0) {
+    // res[i] = last;
+    // } else {
+    // res[i] = nums[i - 1];
+    // }
+    // }
+
+    for (int i : res) {
+      System.out.println(i);
+    }
+  }
+
+  public static void math() {
+    System.out.println(Math.E);
+    System.out.println(Math.PI);
+    System.out.println(Math.max(10, 12));
+    System.out.println(Math.min(10, 12));
+    System.out.println(Math.random());
+    System.out.println(Math.ceil(4.5));
+    System.out.println(Math.floor(4.5));
+    System.out.println(Math.round(4.5));
+    System.out.println(Math.abs(4.5));
+    System.out.println(Math.exp(5));
+    System.out.println(Math.pow(5, 2));
+
+    String[] colores = { "Rojo", "Azul", "Verde", "Negro" };
+
+    double random = Math.random();
+    random *= colores.length;
+    random = Math.floor(random);
+
+    System.out.println(colores[(int) random]);
+
+    Random rd = new Random();
+
+    System.out.println(rd.nextInt(5, 10));
+
   }
 
   public static void runTime() {
@@ -162,7 +262,7 @@ public class App {
 
     }
     System.out.println(text.concat(", ").concat("algo nuevo"));
-    System.out.println(text.transform(c -> c + ", algo nuevo"));
+    // System.out.println(text.transform(c -> c + ", algo nuevo"));
     System.out.println(text.replace("a", "-"));
     System.out.println(text.indexOf("a")); // Si no exite -1 sino posicion
     System.out.println(text.lastIndexOf("a"));
@@ -196,6 +296,25 @@ public class App {
     System.out.println(value);
   }
 
+  public static void arrayList() {
+    List<Persona> personas = new ArrayList<Persona>();
+    personas.add(new Persona("Miguel", 26));
+    personas.add(new Persona("Mariana", 23));
+
+    Map<String, Persona> map = new HashMap<String, Persona>();
+
+    map.put(personas.get(0).toString(), personas.get(0));
+    map.put(personas.get(1).toString(), personas.get(1));
+
+    map.forEach((k, v) -> {
+      System.out.println("[KEY]: " + k + ", [Value]: "
+          + v.getEdad() + " - " + v.getNombre());
+    });
+
+    System.out.println(map);
+
+  }
+
   public static void variables() {
     // Cadena
     String cadena = "Cadena";
@@ -216,4 +335,34 @@ public class App {
     var nombre = "Hola Mundo\n";
 
   }
+}
+
+class Persona {
+  private String nombre;
+  private int edad;
+
+  public Persona(String nombre, int edad) {
+    this.nombre = nombre;
+    this.edad = edad;
+  }
+
+  public Persona() {
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public int getEdad() {
+    return edad;
+  }
+
+  public void setEdad(int edad) {
+    this.edad = edad;
+  }
+
 }

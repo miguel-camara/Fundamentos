@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class DetalleDeFactura {
-  public static void main(String[] args) {
+  public static void mains(String[] args) {
     Scanner sc = new Scanner(System.in);
 
     String nombreFactura = "";
