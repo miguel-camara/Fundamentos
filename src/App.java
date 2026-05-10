@@ -4,7 +4,30 @@ public class App {
   public static void main(String[] args) throws Exception {
     // metodosString();
     // obtenerExtension();
-    operadores();
+    // operadores();
+    login();
+  }
+
+  public static void login() {
+    final var EMAIL = "correo@correo.com";
+    final var PASSWORD = "123456";
+
+    var email = "";
+    var password = "";
+
+    do {
+      email = JOptionPane.showInputDialog("Correo");
+      password = JOptionPane.showInputDialog("Contraseña");
+
+      if (email.equals(EMAIL) && password.equals(PASSWORD)) {
+        JOptionPane.showMessageDialog(null, "Login succes");
+      } else {
+        JOptionPane.showMessageDialog(null, "Error en credenciales");
+      }
+
+    } while (!email.equals(EMAIL) && !password.equals(PASSWORD));
+    // System.err.println("Ocurrio un error");
+
   }
 
   private static void operadores() {
@@ -32,13 +55,34 @@ public class App {
     resultado %= 1;
     System.out.println(resultado);
 
-    for (int i = 0; i < 50; i++) {
-      if (i % 2 == 0) {
-        System.out.println("El numero ".concat(i + " Es PAR"));
-      } else {
-        System.out.println("El numero ".concat(i + " Es IMPAR"));
-      }
-    }
+    var r = 0;
+
+    r = -10 * -1;
+    System.out.println(r);
+
+    var logicos = false;
+    logicos = num1 == num2;
+    logicos = num1 != num2;
+    logicos = num1 > num2;
+    logicos = num1 >= num2;
+    logicos = num1 < num2;
+    logicos = num1 <= num2 || true;
+    logicos = num1 <= num2 && num1 != 10;
+
+    StringBuilder sb = new StringBuilder("Texto");
+    System.out.println(sb.toString());
+    sb.append("Nuevo texto");
+    System.out.println(sb.toString());
+    sb.delete(0, sb.length());
+    System.out.println(sb.toString().concat("-"));
+
+    // for (int i = 0; i < 50; i++) {
+    // if (i % 2 == 0) {
+    // System.out.println("El numero ".concat(i + " Es PAR"));
+    // } else {
+    // System.out.println("El numero ".concat(i + " Es IMPAR"));
+    // }
+    // }
   }
 
   public static void metodosString() {
