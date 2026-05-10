@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class App {
@@ -5,28 +9,60 @@ public class App {
     // metodosString();
     // obtenerExtension();
     // operadores();
-    login();
+    // login();
+    ternario();
+  }
+
+  public static void operadorInstansOF() {
+    String cadena = "";
+    Integer entero = 200;
+
+    var tipo = cadena instanceof String;
+    System.out.println(tipo);
+    tipo = entero instanceof Integer;
+    System.out.println(tipo);
+  }
+
+  public static void ternario() {
+    var valor = 10;
+    var textMayor = "";
+
+    textMayor = valor > 10 ? "El es mayor a ".concat("" + valor) : "El es Menor de ".concat("" + valor);
+
+    System.out.println(textMayor);
   }
 
   public static void login() {
-    final var EMAIL = "correo@correo.com";
-    final var PASSWORD = "123456";
+
+    var map = new HashMap<String, String>();
+    map.put("correo@correo.com", "12345");
+    map.put("correo2@correo.com", "54321");
 
     var email = "";
     var password = "";
 
-    do {
-      email = JOptionPane.showInputDialog("Correo");
-      password = JOptionPane.showInputDialog("Contraseña");
+    Scanner sc = new Scanner(System.in);
+    var isValido = false;
 
-      if (email.equals(EMAIL) && password.equals(PASSWORD)) {
-        JOptionPane.showMessageDialog(null, "Login succes");
-      } else {
-        JOptionPane.showMessageDialog(null, "Error en credenciales");
+    do {
+      System.out.print("Email: ");
+      email = sc.next();
+
+      System.out.print("Password: ");
+      password = sc.next();
+
+      for (Map.Entry<String, String> entry : map.entrySet()) {
+        if (email.equals(entry.getKey()) && password.equals(entry.getValue())) {
+          JOptionPane.showMessageDialog(null, "Login success ".concat(email));
+          isValido = true;
+          return;
+        }
       }
 
-    } while (!email.equals(EMAIL) && !password.equals(PASSWORD));
-    // System.err.println("Ocurrio un error");
+      isValido = false;
+      JOptionPane.showMessageDialog(null, "Error en credenciales");
+
+    } while (!isValido);
 
   }
 
