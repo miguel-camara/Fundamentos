@@ -12,7 +12,20 @@ public class App {
     // operadores();
     // login();
     // ternario();
-    variablesEntorno();
+    // variablesEntorno();
+    runTime();
+  }
+
+  public static void runTime() {
+    Runtime rt = Runtime.getRuntime();
+    Process process;
+
+    try {
+      process = rt.exec("notepad");
+      process.waitFor();
+    } catch (Exception e) {
+      System.err.println("Ocurrio un error");
+    }
   }
 
   public static void variablesEntorno() {
