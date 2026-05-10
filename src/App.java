@@ -1,15 +1,25 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 public class App {
+
   public static void main(String[] args) throws Exception {
     // metodosString();
     // obtenerExtension();
     // operadores();
-    login();
+    // login();
     // ternario();
+    variablesEntorno();
+  }
+
+  public static void variablesEntorno() {
+    Map<String, String> env = System.getenv();
+
+    env.forEach((v, k) -> System.out.println("Key: " + k + " Value: " + v + "\n-------"));
+
   }
 
   public static void operadorInstansOF() {
